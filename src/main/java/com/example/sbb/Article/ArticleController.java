@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -12,12 +13,13 @@ import java.util.List;
 @Controller
 public class ArticleController {
 
-   private final ArticleRepository articleRepository;
+   private final ArticleService articleService;
 
-    @GetMapping("/Article/list")
+    @GetMapping("/article/list")
     public String list(Model model) {
-        List<Article> questionList = this.articleRepository.findAll();
-        model.addAttribute("articleList", questionList);
-        return "Aritcle_list";
+        List<Article> articleList = this.articleService.getList();
+        model.addAttribute("articleList", articleList);
+
+        return "article_list";
     }
 }

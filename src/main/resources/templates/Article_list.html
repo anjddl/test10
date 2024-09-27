@@ -1,3 +1,5 @@
+
+<div>
 <table>
   <thead>
   <tr>
@@ -6,9 +8,10 @@
   </tr>
   </thead>
   <tbody>
-  <tr th:each="Article : ${articleList}">
-    <td th:text="${Article.subject}"></td>
-    <td th:text="${Article.createDate}"></td>
+  <tr th:each="article : ${articleList}">
+    <td th:text="${article.subject}"></td>
+    <td th:text="${article.createDate}"></td>
   </tr>
   </tbody>
 </table>
+</div>
